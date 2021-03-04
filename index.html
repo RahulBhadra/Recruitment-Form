@@ -15,9 +15,7 @@
             <h1 id="title">Learn the skills needed for your next job.</h1>
             <p id="description">
                 You want to land a new job as a developer but don't have the skills
-                required for it? Take one of our classes and get accepted for job.
-                Fill in this little survey & we will send you the required classes
-                via email.
+                required for it?
             </p>
             <section class="form-holder">
                 <form name="myform"id="survey-form" autocomplete="off" onsubmit="return validateForm()";>
@@ -27,14 +25,15 @@
                             <div class="input-group">
                                 <label id="name-label" for="name">Name</label>
                                 <input type="text" name="uname" id="name"  placeholder="Your name">
+                                <span id="nameid"></span>
                             </div>
                             <div class="input-group">
                                 <label id="email-label" for="email">Email</label>
-                                <input type="email" name="umail" id="email" required placeholder="Your email">
+                                <input type="email" name="umail" id="email"  placeholder="Your email">
                             </div>
                             <div class="input-group">
                                 <label id="number-label" for="age">Age</label>
-                                <input type="number" name="age" id="number" min="18" max="60" required placeholder="Age">
+                                <input type="number" name="age" id="number" min="18" max="60"  placeholder="Age">
                             </div>
                             <div class="input-group">
                                 <label id="dropdown" for="dropdown">Gender</label>
@@ -120,7 +119,7 @@
                     </section>
                     <div class="button-group">
                         <button type="reset">Cancel</button>
-                        <input type="submit" value="Submit" id="submit">Send</input>
+                        <button type="submit" value="Submit" id="submit">Send</button>
                     </div>
                 </form>
             </section>
@@ -130,14 +129,27 @@
   <p>Developed by Rahul </p>
 </footer>
 </body>
-<script >
-    function validateForm(){
-    var name=document.getElementById('name').value;
 
+    
+<script >
+    let application = document.querySelector('form');
+    application.addEventListener('submit', ()=>{
+        var name=document.getElementById('name').value;
     if(name==""){
-        alert("Name can't be blank");  
-        return false; 
+        alert("Name can't be blank"); 
     }
-}
+    var email=document.getElementById('email').value;
+    if(email==""){
+        alert("EMail cant be blank");
+    }
+    var age=document.getElementById('age').value;
+    if(age==''){
+        alert("age cant be blank");
+    }else if(age>60){
+        alert("age cant be more than 60");
+    }
+    });
+
+   
 </script>
 </html>
