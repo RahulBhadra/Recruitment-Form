@@ -204,3 +204,22 @@ footer p
     grid-column: span 12;
   }
 }
+#username{
+
+  color: red;
+  font-weight: bold;
+}
+#useremail{
+
+  color: red;
+  font-weight: bold;
+}
+#userage{
+
+  color: red;
+  font-weight: bold;
+}
+#usertextarea{
+  color: red;
+  font-weight: bold;
+}

@@ -23,14 +23,17 @@
                             <div class="input-group">
                                 <label id="name-label" for="name">Name</label>
                                 <input type="text" name="uname" id="name"  placeholder="Your name">
+                                <span id="username"></span>
                             </div>
                             <div class="input-group">
                                 <label id="email-label" for="email">Email</label>
                                 <input type="email" name="email" id="email"  placeholder="Your email">
+                                <span id="useremail"></span>
                             </div>
                             <div class="input-group">
                                 <label id="number-label" for="age">Age</label>
                                 <input type="number" name="age" id="age" min="18" max="60"  placeholder="Age" isphone()>
+                                <span id="userage"></span>
                             </div>
                             <div class="input-group">
                                 <label id="dropdown" for="dropdown">Gender</label>
@@ -111,19 +114,20 @@
                         <p class="section-heading">Your suggestions</p>
                         <div class="input-group">
                             <label for="message">Is there anything we need to know before we put together your lessons?</label>
-                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                            <textarea name="" id="textr" cols="30" rows="10"></textarea>
+                            <span class="usertextarea"></span>
                         </div>
                     </section>
                     <div class="button-group">
                         <button type="reset">Cancel</button>
-                        <button type="submit" id="submit">Send</button>
+                        <button  id="submit">Send</button>
                     </div>
                 </form>
             </section>
         </section>
     </main>
-<footer>
-  <p>Developed by Rahul</p>
+<footer class="text-center">
+  <p >Developed by Rahul</p>
 </footer>
 <!-- partial -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/emmet/2.1.1/emmet.cjs.js'></script>
@@ -137,22 +141,39 @@ function isphone(evt) {
         return true;
      }    
     let application = document.querySelector('form');
-    application.addEventListener('submit', ()=>{
+    application.addEventListener('submit', (e)=>{
+        e.preventDefault();
         var name=document.getElementById('name').value;
     if(name==""){
-        alert("Name can't be blank"); 
+       document.getElementById('username').innerHTML=" *** please fill the username field";
+
+if((name.length<=2)||(name.length>20)){
+    document.getElementById('username').innerHTML=" *** please user length between 2 and 20";
+}
+if(!isNaN(name)){
+    document.getElementById('username').innerHTML=" *** only character are allowed";
+}
+
+    //    return false;
     }
     var email=document.getElementById('email').value;
     if(email==""){
-        alert("EMail cant be blank");
+        document.getElementById('useremail').innerHTML=" *** please fill the useremail field";
+    //    return false;
     }
     var age=document.getElementById('age').value;
     if(age==''){
-        alert("age cant be blank");
+        document.getElementById('userage').innerHTML=" *** please fill the age field";
+    //    return false;
     }else if(age>60){
         alert("age cant be more than 60");
     }
     });
+
+    var textr=document.getElementById('textr').value;
+    if(textr==" "){
+        document.getElementById('usertextarea').innerHTML=" *** please fill the age field";
+    }
 
    
 </script>
