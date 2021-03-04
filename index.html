@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Recruitment form</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.6.55/css/materialdesignicons.min.css'><link rel="stylesheet" href="./style.css">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<main class="main-container">
+    
+    <main class="main-container">
         <section class="survey-holder">
             <h1 id="title">Learn the skills needed for your next job.</h1>
             <p id="description">
                 You want to land a new job as a developer but don't have the skills
-                required for it? 
+                required for it?
             </p>
             <section class="form-holder">
-                <form id="survey-form" autocomplete="off"  onsubmit="return validateForm()">
+                <form name="myform"id="survey-form" autocomplete="off" onsubmit="return validateForm()";>
                     <section class="form-section">
                         <p class="section-heading">Your personal details</p>
                         <div class="form-grid">
@@ -27,12 +29,12 @@
                             </div>
                             <div class="input-group">
                                 <label id="email-label" for="email">Email</label>
-                                <input type="email" name="email" id="email"  placeholder="Your email">
+                                <input type="email" name="umail" id="email"  placeholder="Your email">
                                 <span id="useremail"></span>
                             </div>
                             <div class="input-group">
                                 <label id="number-label" for="age">Age</label>
-                                <input type="number" name="age" id="age" min="18" max="60"  placeholder="Age" isphone()>
+                                <input type="number" name="age" id="age" min="18" max="60"  placeholder="Age">
                                 <span id="userage"></span>
                             </div>
                             <div class="input-group">
@@ -114,32 +116,24 @@
                         <p class="section-heading">Your suggestions</p>
                         <div class="input-group">
                             <label for="message">Is there anything we need to know before we put together your lessons?</label>
-                            <textarea name="" id="textr" cols="30" rows="10"></textarea>
-                            <span class="usertextarea"></span>
+                            <textarea name="" id="" cols="30" rows="10"></textarea>
                         </div>
                     </section>
                     <div class="button-group">
                         <button type="reset">Cancel</button>
-                        <button  id="submit">Send</button>
+                        <button type="submit" value="Submit" id="submit">Send</button>
                     </div>
                 </form>
             </section>
         </section>
     </main>
-<footer class="text-center">
-  <p >Developed by Rahul</p>
+<footer>
+  <p>Developed by Rahul </p>
 </footer>
-<!-- partial -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/emmet/2.1.1/emmet.cjs.js'></script>
+</body>
+
+    
 <script >
-
-function isphone(evt) {
-        var iKeyCode = (evt.which) ? evt.which : evt.keyCode
-        if (iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
-            return false;
-
-        return true;
-     }    
     let application = document.querySelector('form');
     application.addEventListener('submit', (e)=>{
         e.preventDefault();
@@ -158,7 +152,7 @@ if(!isNaN(name)){
     }
     var email=document.getElementById('email').value;
     if(email==""){
-        document.getElementById('useremail').innerHTML=" *** please fill the useremail field";
+        document.getElementById('useremail').innerHTML=" *** please fill the email field";
     //    return false;
     }
     var age=document.getElementById('age').value;
@@ -176,6 +170,7 @@ if(!isNaN(name)){
     }
 
    
+
+   
 </script>
-</body>
 </html>
