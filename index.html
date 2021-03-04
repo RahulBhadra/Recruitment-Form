@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Recruitment form</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.6.55/css/materialdesignicons.min.css'><link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-    
-    <main class="main-container">
+<!-- partial:index.partial.html -->
+<main class="main-container">
         <section class="survey-holder">
             <h1 id="title">Learn the skills needed for your next job.</h1>
             <p id="description">
                 You want to land a new job as a developer but don't have the skills
-                required for it?
+                required for it? 
             </p>
             <section class="form-holder">
-                <form name="myform"id="survey-form" autocomplete="off" onsubmit="return validateForm()";>
+                <form id="survey-form" autocomplete="off"  onsubmit="return validateForm()">
                     <section class="form-section">
                         <p class="section-heading">Your personal details</p>
                         <div class="form-grid">
                             <div class="input-group">
                                 <label id="name-label" for="name">Name</label>
                                 <input type="text" name="uname" id="name"  placeholder="Your name">
-                                <span id="nameid"></span>
                             </div>
                             <div class="input-group">
                                 <label id="email-label" for="email">Email</label>
-                                <input type="email" name="umail" id="email"  placeholder="Your email">
+                                <input type="email" name="email" id="email"  placeholder="Your email">
                             </div>
                             <div class="input-group">
                                 <label id="number-label" for="age">Age</label>
-                                <input type="number" name="age" id="number" min="18" max="60"  placeholder="Age">
+                                <input type="number" name="age" id="age" min="18" max="60"  placeholder="Age" isphone()>
                             </div>
                             <div class="input-group">
                                 <label id="dropdown" for="dropdown">Gender</label>
@@ -119,19 +116,26 @@
                     </section>
                     <div class="button-group">
                         <button type="reset">Cancel</button>
-                        <button type="submit" value="Submit" id="submit">Send</button>
+                        <button type="submit" id="submit">Send</button>
                     </div>
                 </form>
             </section>
         </section>
     </main>
 <footer>
-  <p>Developed by Rahul </p>
+  <p>Developed by Rahul</p>
 </footer>
-</body>
-
-    
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/emmet/2.1.1/emmet.cjs.js'></script>
 <script >
+
+function isphone(evt) {
+        var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+        if (iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+            return false;
+
+        return true;
+     }    
     let application = document.querySelector('form');
     application.addEventListener('submit', ()=>{
         var name=document.getElementById('name').value;
@@ -152,4 +156,5 @@
 
    
 </script>
+</body>
 </html>
