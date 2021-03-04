@@ -20,13 +20,13 @@
                 via email.
             </p>
             <section class="form-holder">
-                <form id="survey-form" autocomplete="off">
+                <form name="myform"id="survey-form" autocomplete="off" onsubmit="return validateForm()";>
                     <section class="form-section">
                         <p class="section-heading">Your personal details</p>
                         <div class="form-grid">
                             <div class="input-group">
                                 <label id="name-label" for="name">Name</label>
-                                <input type="text" name="uname" id="name" required placeholder="Your name">
+                                <input type="text" name="uname" id="name"  placeholder="Your name">
                             </div>
                             <div class="input-group">
                                 <label id="email-label" for="email">Email</label>
@@ -120,7 +120,7 @@
                     </section>
                     <div class="button-group">
                         <button type="reset">Cancel</button>
-                        <button type="submit" id="submit">Send</button>
+                        <input type="submit" value="Submit" id="submit">Send</input>
                     </div>
                 </form>
             </section>
@@ -130,4 +130,14 @@
   <p>Developed by Rahul </p>
 </footer>
 </body>
+<script >
+    function validateForm(){
+    var name=document.getElementById('name').value;
+
+    if(name==""){
+        alert("Name can't be blank");  
+        return false; 
+    }
+}
+</script>
 </html>
