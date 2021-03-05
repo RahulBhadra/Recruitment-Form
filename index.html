@@ -24,7 +24,7 @@
                         <div class="form-grid">
                             <div class="input-group">
                                 <label id="name-label" for="name">Name</label>
-                                <input type="text" name="uname" id="name"  placeholder="Your name">
+                                <input type="text" name="uname" id="name"  placeholder="Your name"  onkeypress="return isTextKey(event)">
                                 <span id="username"></span>
                             </div>
                             <div class="input-group">
@@ -140,37 +140,44 @@
         var name=document.getElementById('name').value;
     if(name==""){
        document.getElementById('username').innerHTML=" *** please fill the username field";
-
-if((name.length<=2)||(name.length>20)){
+    }
+else if((name.length<=2)||(name.length>20)){
     document.getElementById('username').innerHTML=" *** please user length between 2 and 20";
 }
-if(!isNaN(name)){
+else if(!isNaN(name)){
     document.getElementById('username').innerHTML=" *** only character are allowed";
+}else{
+    document.getElementById('username').innerHTML= "";
+
+    return name;
 }
 
     //    return false;
-    }
+    
     var email=document.getElementById('email').value;
     if(email==""){
         document.getElementById('useremail').innerHTML=" *** please fill the email field";
-    //    return false;
+       return false;
+    }else{
+        document.getElementById('useremail').innerHTML= "";
     }
     var age=document.getElementById('age').value;
     if(age==''){
         document.getElementById('userage').innerHTML=" *** please fill the age field";
-    //    return false;
-    }else if(age>60){
+       return false;
+    }else if(age>100){
         alert("age cant be more than 60");
+    }else{
+        document.getElementById('userage').innerHTML= "";
     }
     });
 
     var textr=document.getElementById('textr').value;
     if(textr==" "){
         document.getElementById('usertextarea').innerHTML=" *** please fill the age field";
+    }  else{
+        document.getElementById('userage').innerHTML= "";
     }
-
-   
-
-   
 </script>
+<!-- <script src="validation.js"></script> -->
 </html>
